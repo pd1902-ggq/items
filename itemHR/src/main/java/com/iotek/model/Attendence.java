@@ -6,7 +6,7 @@ import java.util.Date;
 //考勤表
 public class Attendence implements Serializable {
     private int atd_id;
-    private int e_id;
+    private int e_id;//员工id
     private Date atd_start_time;
     private Date atd_end_time;
 

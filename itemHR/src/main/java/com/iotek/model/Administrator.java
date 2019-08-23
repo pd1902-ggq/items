@@ -2,6 +2,7 @@ package com.iotek.model;
 
 import java.io.Serializable;
 
+//管理员
 public class Administrator implements Serializable {
     private Integer a_id;
     private String a_name;

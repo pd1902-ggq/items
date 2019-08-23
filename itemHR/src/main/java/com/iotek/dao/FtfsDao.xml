@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.FtfsDao">
+    <insert id="addFtfs">
+        insert into T_FTFS values (SEQ_FTFS.nextval,#{cv_id},#{rct_id},#{f_date},#{f_is_read},#{f_is_accept},#{f_is_agree})
+    </insert>
+    <update id="updateFtfs">
+        update T_FTFS set CV_ID = #{cv_id},RCT_ID=#{rct_id},F_DATE=#{f_date},F_IS_READ=#{f_is_read},F_IS_ACCEPT=#{f_is_accept},F_IS_AGREE=#{f_is_agree} where F_ID=#{f_id}
+    </update>
+    <delete id="deleFtfs">
+        delete from T_FTFS where F_ID=#{id}
+    </delete>
+    <select id="queryFtfs" resultType="com.iotek.model.Ftfs">
+        select * from T_FTFS
+        <where>
+            <choose>
+                <when test="f_id!=0 and f_id!=null">
+                    and F_ID=#{f_id}
+                </when>
+                <when test="rct_id!=0 and rct_id!=null">
+                    and RCT_ID=#{rct_id}
+                </when>
+                <when test="cv_id!=0 and cv_id!=null">
+                    and CV_ID=#{cv_id}
+                </when>
+                <otherwise>
+                    1=1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="queryFtfsByPageWithAccept" resultType="com.iotek.model.Ftfs">
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
+        from T_FTFS  where F_IS_ACCEPT=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    </select>
+    <select id="queryFtfsByPageWithCvidAndAccept" resultType="com.iotek.model.Ftfs">
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
+        from T_FTFS  where CV_ID=#{2} and F_IS_ACCEPT=#{3} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    </select>
+</mapper>

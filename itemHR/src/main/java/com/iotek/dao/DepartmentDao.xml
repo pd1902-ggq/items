@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.DepartmentDao">
+    <insert id="addDepartment">
+        insert into T_DEPARTMENT values (SEQ_DEPARTMENT.nextval,#{dep_name},#{dep_date})
+    </insert>
+    <update id="updateDepartment">
+        update T_DEPARTMENT set DEP_NAME=#{dep_name},DEP_DATE=#{dep_date} where DEP_ID=#{dep_id}
+    </update>
+    <delete id="deleDepartment">
+        delete FROM T_DEPARTMENT where DEP_ID=#{id}
+    </delete>
+    <select id="queryDepartment" resultType="java.lang.Deprecated">
+        select * from T_DEPARTMENT
+        <where>
+            <choose>
+                <when test="dep_id!=0 and dep_id!=null">
+                    and DEP_ID=#{dep_id}
+                </when>
+                <when test="dep_name!='' and dep_name!=null">
+                    and DEP_NAME=#{dep_name}
+                </when>
+                <otherwise>
+                    1=1
+                </otherwise>
+            </choose>
+        </where>
+
+    </select>
+    <select id="queryDepartmentByPage" resultType="java.lang.Deprecated">
+         select rownum,DEP_ID,DEP_NAME,DEP_DATE from (select rownum r,DEP_ID,DEP_NAME,DEP_DATE from T_DEPARTMENT  where rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    </select>
+</mapper>

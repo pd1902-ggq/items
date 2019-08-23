@@ -8,7 +8,7 @@ public class Recruit implements Serializable {
     private int rct_id;//ID
     private int pos_id;//职位ID
     private String rct_title;//主题
-    private String rct_introducation;//职位描述
+    private String rec_introduaction;//职位描述
     private Date rct_publish_time;//发布时间
     private String rct_address;//地址
     private int rct_salary;//薪资
@@ -19,10 +19,10 @@ public class Recruit implements Serializable {
     public Recruit() {
     }
 
-    public Recruit(int pos_id, String rct_title, String rct_introducation, Date rct_publish_time, String rct_address, int rct_salary, int e_id, int rct_is_draft, int rct_is_publish) {
+    public Recruit(int pos_id, String rct_title, String rec_introduaction, Date rct_publish_time, String rct_address, int rct_salary, int e_id, int rct_is_draft, int rct_is_publish) {
         this.pos_id = pos_id;
         this.rct_title = rct_title;
-        this.rct_introducation = rct_introducation;
+        this.rec_introduaction = rec_introduaction;
         this.rct_publish_time = rct_publish_time;
         this.rct_address = rct_address;
         this.rct_salary = rct_salary;
@@ -31,11 +31,11 @@ public class Recruit implements Serializable {
         this.rct_is_publish = rct_is_publish;
     }
 
-    public Recruit(int rct_id, int pos_id, String rct_title, String rct_introducation, Date rct_publish_time, String rct_address, int rct_salary, int e_id, int rct_is_draft, int rct_is_publish) {
+    public Recruit(int rct_id, int pos_id, String rct_title, String rec_introduaction, Date rct_publish_time, String rct_address, int rct_salary, int e_id, int rct_is_draft, int rct_is_publish) {
         this.rct_id = rct_id;
         this.pos_id = pos_id;
         this.rct_title = rct_title;
-        this.rct_introducation = rct_introducation;
+        this.rec_introduaction = rec_introduaction;
         this.rct_publish_time = rct_publish_time;
         this.rct_address = rct_address;
         this.rct_salary = rct_salary;
@@ -68,12 +68,12 @@ public class Recruit implements Serializable {
         this.rct_title = rct_title;
     }
 
-    public String getRct_introducation() {
-        return rct_introducation;
+    public String getrec_introduaction() {
+        return rec_introduaction;
     }
 
-    public void setRct_introducation(String rct_introducation) {
-        this.rct_introducation = rct_introducation;
+    public void setrec_introduaction(String rec_introduaction) {
+        this.rec_introduaction = rec_introduaction;
     }
 
     public Date getRct_publish_time() {
@@ -130,7 +130,7 @@ public class Recruit implements Serializable {
                 "rct_id=" + rct_id +
                 ", pos_id=" + pos_id +
                 ", rct_title='" + rct_title + '\'' +
-                ", rct_introducation='" + rct_introducation + '\'' +
+                ", rec_introduaction='" + rec_introduaction + '\'' +
                 ", rct_publish_time=" + rct_publish_time +
                 ", rct_address='" + rct_address + '\'' +
                 ", rct_salary=" + rct_salary +

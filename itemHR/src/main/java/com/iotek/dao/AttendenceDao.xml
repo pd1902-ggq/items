@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.AttendenceDao">
+    <insert id="addAttendence">
+        insert into T_ATTENDENCE values (SEQ_ALLENDENCE.nextval,#{e_id},#{atd_start_time},#{atd_end_time})
+    </insert>
+    <update id="updateAttendence">
+        update T_ATTENDENCE set E_ID=#{e_id},ATD_START_TIME=#{atd_start_time},ATD_END_TIME=#{atd_end_time} where ATD_ID=#{atd_id}
+    </update>
+    <delete id="deleAttendence">
+        delete from T_ATTENDENCE where ATD_ID=#{id}
+    </delete>
+    <select id="queryAttendence" resultType="com.iotek.model.Attendence">
+        select *from T_ATTENDENCE
+        <where>
+            <choose>
+                <when test="atd_id!=0 and atd_id!=null">
+                    and ATD_ID=#{atd_id}
+                </when>
+                <when test="e_id!=0 and e_id!=null">
+                    and E_ID=#{e_id}
+                </when>
+                <otherwise>
+                    1=1
+                </otherwise>
+            </choose>
+
+        </where>
+    </select>
+    <select id="queryAttendenceBypage" resultType="com.iotek.model.Attendence">
+        select rownum,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from (select rownum r,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from T_ATTENDENCE  where rownum <![CDATA[<]]>=#{1} order by ATD_START_TIME DESC) t  where r>= #{0}
+    </select>
+    <select id="queryAttendenceBypagewithEID" resultType="com.iotek.model.Attendence">
+        select rownum,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from (select rownum r,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from T_ATTENDENCE  where E_ID=#{2} and rownum <![CDATA[<]]>=#{1} order by ATD_START_TIME DESC) t  where r>= #{0}
+    </select>
+</mapper>

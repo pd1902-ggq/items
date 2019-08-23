@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.SalaryDao">
+    <insert id="addSalary">
+        insert into T_SALARY  values (SEQ_SALARY.nextval,#{e_id},#{s_date},#{s_performance},#{s_extra},#{s_s_insurance},#{s_total},#{s_is_trouble})
+    </insert>
+    <update id="updateSalary">
+        update T_SALARY set E_ID=#{e_id},S_DATE=#{s_date},S_PERFORMANCE=#{s_performance},S_EXTRA=#{s_extra},S_S_INSURANCE=#{s_s_insurance},S_TOTAL=#{s_total},S_IS_TROUBLE=#{s_is_trouble} where S_ID=#{s_id}
+    </update>
+    <delete id="deleSalary">
+        delete from T_SALARY where S_ID=#{id}
+    </delete>
+    <select id="querySalary" resultType="com.iotek.model.Salary">
+        select *FROM T_SALARY
+        <where>
+            <choose>
+                <when test="s_id!=0 and s_id!=null">
+                    and S_ID=#{s_id}
+                </when>
+                <when test="e_id!=0 and e_id!=null">
+                    and E_ID=#{e_id}
+                </when>
+                <when test="s_is_trouble!=0 and s_is_trouble!=null">
+                    and S_IS_TROUBLE=#{s_is_trouble}
+                </when>
+                <otherwise>
+                    1=1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+</mapper>

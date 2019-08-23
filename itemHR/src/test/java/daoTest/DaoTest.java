@@ -1,7 +1,10 @@
 package daoTest;
 
 import com.iotek.dao.AdministratorDao;
+import com.iotek.dao.AttendenceDao;
 import com.iotek.model.Administrator;
+import com.iotek.model.Attendence;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,6 +22,7 @@ import java.util.List;
 public class DaoTest {
 //    @Resource
     private AdministratorDao administratorDao=null;
+    private AttendenceDao attendenceDao=null;
     @org.junit.Test
     public void testadd(){
         ApplicationContext context=new ClassPathXmlApplicationContext( "classpath:bean.xml" );
@@ -33,5 +37,14 @@ public class DaoTest {
             System.out.println(administrator1);
         }
 
+    }
+    @Test
+    public void test1(){
+        ApplicationContext context=new ClassPathXmlApplicationContext( "classpath:bean.xml" );
+        attendenceDao= (AttendenceDao) context.getBean( "attendenceDao" );
+        List<Attendence> attendences = attendenceDao.queryAttendenceBypage( 0, 3 );
+        for (Attendence attendence : attendences) {
+            System.out.println(attendence);
+        }
     }
 }

@@ -6,9 +6,9 @@
     </root>
     <schema id="2" parent="1" name="SCOTT">
       <ObjectId>48</ObjectId>
-      <IntrospectionTimestamp>2019-08-23.18:15:53</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-08-25.00:36:52</IntrospectionTimestamp>
       <CreatedTimestamp>2019-08-22.21:12:41</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-23.18:15:48</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-25.00:36:51</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -159,67 +159,67 @@
     <table id="34" parent="2" name="T_ATTENDENCE">
       <ObjectId>20237</ObjectId>
       <CreatedTimestamp>2019-08-22.21:22:04</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:22:04</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:16:52</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="35" parent="2" name="T_CUSTOMER">
       <ObjectId>20238</ObjectId>
       <CreatedTimestamp>2019-08-22.21:22:46</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:22:46</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:09</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="36" parent="2" name="T_CV">
       <ObjectId>20234</ObjectId>
       <CreatedTimestamp>2019-08-22.21:13:47</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:13:47</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-25.00:36:51</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="37" parent="2" name="T_DEPARTMENT">
       <ObjectId>20236</ObjectId>
       <CreatedTimestamp>2019-08-22.21:19:26</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:19:26</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:39</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="38" parent="2" name="T_EMPLOYEE">
       <ObjectId>20239</ObjectId>
       <CreatedTimestamp>2019-08-22.21:25:37</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:25:37</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-24.01:36:04</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="39" parent="2" name="T_FTFS">
       <ObjectId>20240</ObjectId>
       <CreatedTimestamp>2019-08-22.21:28:02</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:28:02</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:18:22</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="40" parent="2" name="T_POSITION">
       <ObjectId>20241</ObjectId>
       <CreatedTimestamp>2019-08-22.21:28:42</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:28:42</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:18:37</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="41" parent="2" name="T_RECRUIT">
       <ObjectId>20235</ObjectId>
       <CreatedTimestamp>2019-08-22.21:14:20</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:14:20</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:32</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="42" parent="2" name="T_REWARD">
       <ObjectId>20242</ObjectId>
       <CreatedTimestamp>2019-08-22.21:30:47</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:30:47</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:29</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="43" parent="2" name="T_SALARY">
       <ObjectId>20245</ObjectId>
       <CreatedTimestamp>2019-08-22.21:36:12</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:36:12</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:27</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="44" parent="2" name="T_TRAINING">
       <ObjectId>20247</ObjectId>
       <CreatedTimestamp>2019-08-22.21:38:21</CreatedTimestamp>
-      <ModifiedTimestamp>2019-08-22.21:38:21</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:24</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <column id="45" parent="33" name="A_ID">
@@ -253,6 +253,7 @@
     <column id="50" parent="34" name="ATD_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="51" parent="34" name="E_ID">
       <Position>2</Position>
@@ -266,321 +267,520 @@
       <Position>4</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="54" parent="35" name="C_ID">
+    <index id="54" parent="34" name="SYS_C007083">
+      <ObjectId>20264</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:16:52</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:16:52</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>ATD_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="34" name="SYS_C007083">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:16:52</ModifiedTimestamp>
+      <ColNames>ATD_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007083</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="35" name="C_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="35" name="C_ACCOUNT">
+    <column id="57" parent="35" name="C_ACCOUNT">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="56" parent="35" name="C_PASS">
+    <column id="58" parent="35" name="C_PASS">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="57" parent="36" name="CV_ID">
+    <index id="59" parent="35" name="SYS_C007085">
+      <ObjectId>20265</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:17:09</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:09</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>C_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="35" name="SYS_C007085">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:17:09</ModifiedTimestamp>
+      <ColNames>C_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007085</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="36" name="CV_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="58" parent="36" name="C_ID">
+    <column id="62" parent="36" name="C_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="59" parent="36" name="CV_NAME">
+    <column id="63" parent="36" name="CV_NAME">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="60" parent="36" name="CV_GENDER">
+    <column id="64" parent="36" name="CV_GENDER">
       <Position>4</Position>
-      <DataType>CHAR(2 byte)|0s</DataType>
+      <DataType>VARCHAR2(5 byte)|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="61" parent="36" name="CV_BIRTH">
+    <column id="65" parent="36" name="CV_BIRTH">
       <Position>5</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="62" parent="36" name="CV_ADDRESS">
+    <column id="66" parent="36" name="CV_ADDRESS">
       <Position>6</Position>
       <DataType>VARCHAR2(200 byte)|0s</DataType>
     </column>
-    <column id="63" parent="36" name="CV_SCHOOL">
+    <column id="67" parent="36" name="CV_SCHOOL">
       <Position>7</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
     </column>
-    <column id="64" parent="36" name="CV_EDUCATION">
+    <column id="68" parent="36" name="CV_EDUCATION">
       <Position>8</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
     </column>
-    <column id="65" parent="36" name="CV_MAJOR">
+    <column id="69" parent="36" name="CV_MAJOR">
       <Position>9</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="66" parent="36" name="CV_ENROLL_DATE">
+    <column id="70" parent="36" name="CV_ENROLL_DATE">
       <Position>10</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="67" parent="36" name="CV_GRADUATION_DATE">
+    <column id="71" parent="36" name="CV_GRADUATION_DATE">
       <Position>11</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="68" parent="36" name="CV_SALARY">
+    <column id="72" parent="36" name="CV_SALARY">
       <Position>12</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="69" parent="36" name="CV_EXPRIENCE">
+    <column id="73" parent="36" name="CV_EXPRIENCE">
       <Position>13</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <check id="70" parent="36" name="GENDER_CONS">
+    <index id="74" parent="36" name="SYS_C007087">
+      <ObjectId>20266</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:17:27</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:27</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>CV_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="75" parent="36" name="SYS_C007087">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:17:27</ModifiedTimestamp>
+      <ColNames>CV_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007087</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="76" parent="36" name="GENDER_CONS">
       <ModifiedTimestamp>2019-08-22.21:13:47</ModifiedTimestamp>
       <ColNames>CV_GENDER</ColNames>
       <Predicate>cv_gender in (&apos;男&apos;,&apos;女&apos;)</Predicate>
     </check>
-    <column id="71" parent="37" name="DEP_ID">
+    <column id="77" parent="37" name="DEP_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="72" parent="37" name="DEP_NAME">
+    <column id="78" parent="37" name="DEP_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="73" parent="37" name="DEP_DATE">
+    <column id="79" parent="37" name="DEP_DATE">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="74" parent="38" name="E_ID">
+    <index id="80" parent="37" name="SYS_C007089">
+      <ObjectId>20267</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:17:39</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:39</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>DEP_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="81" parent="37" name="SYS_C007089">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:17:39</ModifiedTimestamp>
+      <ColNames>DEP_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007089</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="38" name="E_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="75" parent="38" name="E_ACCOUNT">
+    <column id="83" parent="38" name="E_ACCOUNT">
       <Position>2</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="76" parent="38" name="E_PASS">
+    <column id="84" parent="38" name="E_PASS">
       <Position>3</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="77" parent="38" name="E_NAME">
+    <column id="85" parent="38" name="E_NAME">
       <Position>4</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="78" parent="38" name="E_GENDER">
+    <column id="86" parent="38" name="E_GENDER">
       <Position>5</Position>
-      <DataType>CHAR(2 byte)|0s</DataType>
+      <DataType>CHAR(10 byte)|0s</DataType>
     </column>
-    <column id="79" parent="38" name="E_ADDRESS">
+    <column id="87" parent="38" name="E_ADDRESS">
       <Position>6</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="80" parent="38" name="E_PHONE">
+    <column id="88" parent="38" name="E_PHONE">
       <Position>7</Position>
       <DataType>VARCHAR2(11 byte)|0s</DataType>
     </column>
-    <column id="81" parent="38" name="E_DEBIT">
+    <column id="89" parent="38" name="E_DEBIT">
       <Position>8</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="82" parent="38" name="E_ENROLL_DATE">
+    <column id="90" parent="38" name="E_ENROLL_DATE">
       <Position>9</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="83" parent="38" name="E_STATE">
+    <column id="91" parent="38" name="E_STATE">
       <Position>10</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="84" parent="38" name="E_SALARY">
+    <column id="92" parent="38" name="E_SALARY">
       <Position>11</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="85" parent="39" name="F_ID">
+    <index id="93" parent="38" name="SYS_C007091">
+      <ObjectId>20268</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:17:55</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:17:55</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>E_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="94" parent="38" name="SYS_C007091">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:17:55</ModifiedTimestamp>
+      <ColNames>E_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007091</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="95" parent="39" name="F_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="86" parent="39" name="CV_ID">
+    <column id="96" parent="39" name="CV_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="87" parent="39" name="RCT_ID">
+    <column id="97" parent="39" name="RCT_ID">
       <Position>3</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="88" parent="39" name="F_DATE">
+    <column id="98" parent="39" name="F_DATE">
       <Position>4</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="89" parent="39" name="F_IS_READ">
+    <column id="99" parent="39" name="F_IS_READ">
       <Position>5</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="90" parent="39" name="F_IS_ACCEPT">
+    <column id="100" parent="39" name="F_IS_ACCEPT">
       <Position>6</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="91" parent="39" name="F_IS_AGREE">
+    <column id="101" parent="39" name="F_IS_AGREE">
       <Position>7</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <check id="92" parent="39" name="IS_ACCEPT">
+    <index id="102" parent="39" name="SYS_C007093">
+      <ObjectId>20269</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:18:22</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:18:22</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>F_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="103" parent="39" name="SYS_C007093">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:18:22</ModifiedTimestamp>
+      <ColNames>F_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007093</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="104" parent="39" name="IS_ACCEPT">
       <ModifiedTimestamp>2019-08-22.21:28:02</ModifiedTimestamp>
       <ColNames>F_IS_ACCEPT</ColNames>
       <Predicate>f_is_accept in (0,1)</Predicate>
     </check>
-    <check id="93" parent="39" name="IS_AGREE">
+    <check id="105" parent="39" name="IS_AGREE">
       <ModifiedTimestamp>2019-08-22.21:28:02</ModifiedTimestamp>
       <ColNames>F_IS_AGREE</ColNames>
       <Predicate>f_is_agree in (0,1)</Predicate>
     </check>
-    <column id="94" parent="40" name="POS_ID">
+    <column id="106" parent="40" name="POS_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="95" parent="40" name="DEP_ID">
+    <column id="107" parent="40" name="DEP_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="96" parent="40" name="E_ID">
+    <column id="108" parent="40" name="E_ID">
       <Position>3</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="97" parent="40" name="POS_NAME">
+    <column id="109" parent="40" name="POS_NAME">
       <Position>4</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="98" parent="41" name="RCT_ID">
+    <index id="110" parent="40" name="SYS_C007095">
+      <ObjectId>20270</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:18:37</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:18:37</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>POS_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="111" parent="40" name="SYS_C007095">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:18:37</ModifiedTimestamp>
+      <ColNames>POS_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007095</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="112" parent="41" name="RCT_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="99" parent="41" name="POS_ID">
+    <column id="113" parent="41" name="POS_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="100" parent="41" name="RCT_TITLE">
+    <column id="114" parent="41" name="RCT_TITLE">
       <Position>3</Position>
       <DataType>VARCHAR2(100 byte)|0s</DataType>
     </column>
-    <column id="101" parent="41" name="RCT_INTRODUACTION">
+    <column id="115" parent="41" name="RCT_INTRODUACTION">
       <Position>4</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="102" parent="41" name="RCT_PUBLISH_TIME">
+    <column id="116" parent="41" name="RCT_PUBLISH_TIME">
       <Position>5</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="103" parent="41" name="RCT_ADDRESS">
+    <column id="117" parent="41" name="RCT_ADDRESS">
       <Position>6</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="104" parent="41" name="RCT_SALARY">
+    <column id="118" parent="41" name="RCT_SALARY">
       <Position>7</Position>
       <DataType>NUMBER(20 digit)|0s</DataType>
     </column>
-    <column id="105" parent="41" name="E_ID">
+    <column id="119" parent="41" name="E_ID">
       <Position>8</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="106" parent="41" name="RCT_IS_DRAFT">
+    <column id="120" parent="41" name="RCT_IS_DRAFT">
       <Position>9</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="107" parent="41" name="RCT_IS_PUBLISH">
+    <column id="121" parent="41" name="RCT_IS_PUBLISH">
       <Position>10</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <check id="108" parent="41" name="IS_DRAFT">
+    <index id="122" parent="41" name="SYS_C007103">
+      <ObjectId>20274</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:19:32</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:32</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>RCT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="123" parent="41" name="SYS_C007103">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:19:32</ModifiedTimestamp>
+      <ColNames>RCT_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007103</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="124" parent="41" name="IS_DRAFT">
       <ModifiedTimestamp>2019-08-22.21:14:20</ModifiedTimestamp>
       <ColNames>RCT_IS_DRAFT</ColNames>
       <Predicate>rct_is_draft in (0,1)</Predicate>
     </check>
-    <check id="109" parent="41" name="IS_PUBLISH">
+    <check id="125" parent="41" name="IS_PUBLISH">
       <ModifiedTimestamp>2019-08-22.21:14:20</ModifiedTimestamp>
       <ColNames>RCT_IS_PUBLISH</ColNames>
       <Predicate>rct_is_publish in (0,1)</Predicate>
     </check>
-    <column id="110" parent="42" name="R_ID">
+    <column id="126" parent="42" name="R_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="111" parent="42" name="E_ID">
+    <column id="127" parent="42" name="E_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="112" parent="42" name="R_DATE">
+    <column id="128" parent="42" name="R_DATE">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="113" parent="42" name="R_REASON">
+    <column id="129" parent="42" name="R_REASON">
       <Position>4</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="114" parent="42" name="R_MONEY">
+    <column id="130" parent="42" name="R_MONEY">
       <Position>5</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="115" parent="43" name="S_ID">
+    <index id="131" parent="42" name="SYS_C007101">
+      <ObjectId>20273</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:19:29</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:29</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>R_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="132" parent="42" name="SYS_C007101">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:19:29</ModifiedTimestamp>
+      <ColNames>R_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007101</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="133" parent="43" name="S_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="116" parent="43" name="E_ID">
+    <column id="134" parent="43" name="E_ID">
       <Position>2</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="117" parent="43" name="S_DATE">
+    <column id="135" parent="43" name="S_DATE">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="118" parent="43" name="S_PERFORMANCE">
+    <column id="136" parent="43" name="S_PERFORMANCE">
       <Position>4</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="119" parent="43" name="S_EXTRA">
+    <column id="137" parent="43" name="S_EXTRA">
       <Position>5</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="120" parent="43" name="S_S_INSURANCE">
+    <column id="138" parent="43" name="S_S_INSURANCE">
       <Position>6</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="121" parent="43" name="S_TOTAL">
+    <column id="139" parent="43" name="S_TOTAL">
       <Position>7</Position>
       <DataType>NUMBER(15 digit)|0s</DataType>
     </column>
-    <column id="122" parent="43" name="S_IS_TROUBLE">
+    <column id="140" parent="43" name="S_IS_TROUBLE">
       <Position>8</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <check id="123" parent="43" name="IS_TROUBLE">
+    <index id="141" parent="43" name="SYS_C007099">
+      <ObjectId>20272</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:19:27</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:27</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>S_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="142" parent="43" name="SYS_C007099">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:19:27</ModifiedTimestamp>
+      <ColNames>S_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007099</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="143" parent="43" name="IS_TROUBLE">
       <ModifiedTimestamp>2019-08-22.21:36:12</ModifiedTimestamp>
       <ColNames>S_IS_TROUBLE</ColNames>
       <Predicate>S_IS_TROUBLE in (0,1)</Predicate>
     </check>
-    <column id="124" parent="44" name="T_ID">
+    <column id="144" parent="44" name="T_ID">
       <Position>1</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="125" parent="44" name="T_TITLE">
+    <column id="145" parent="44" name="T_TITLE">
       <Position>2</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="126" parent="44" name="E_ID">
+    <column id="146" parent="44" name="E_ID">
       <Position>3</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <column id="127" parent="44" name="T_START_TIME">
+    <column id="147" parent="44" name="T_START_TIME">
       <Position>4</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="128" parent="44" name="T_END_TIME">
+    <column id="148" parent="44" name="T_END_TIME">
       <Position>5</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="129" parent="44" name="T_ADDRESS">
+    <column id="149" parent="44" name="T_ADDRESS">
       <Position>6</Position>
       <DataType>VARCHAR2(255 byte)|0s</DataType>
     </column>
-    <column id="130" parent="44" name="T_IS_PUBLISH">
+    <column id="150" parent="44" name="T_IS_PUBLISH">
       <Position>7</Position>
       <DataType>NUMBER(8 digit)|0s</DataType>
     </column>
-    <check id="131" parent="44" name="IS_PUBLISHS">
+    <index id="151" parent="44" name="SYS_C007097">
+      <ObjectId>20271</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-08-23.18:19:24</CreatedTimestamp>
+      <ModifiedTimestamp>2019-08-23.18:19:24</ModifiedTimestamp>
+      <TablespaceName>SYSTEM</TablespaceName>
+      <ColNames>T_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="152" parent="44" name="SYS_C007097">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-08-23.18:19:24</ModifiedTimestamp>
+      <ColNames>T_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007097</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="153" parent="44" name="IS_PUBLISHS">
       <ModifiedTimestamp>2019-08-22.21:38:21</ModifiedTimestamp>
       <ColNames>T_IS_PUBLISH</ColNames>
       <Predicate>T_IS_PUBLISH in (0,1)</Predicate>

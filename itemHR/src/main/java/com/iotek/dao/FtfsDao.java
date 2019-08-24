@@ -10,5 +10,7 @@ public interface FtfsDao {
     void updateFtfs(Ftfs ftfs);
     List<Ftfs> queryFtfs(Ftfs ftfs);
     List<Ftfs> queryFtfsByPageWithCvid(int start,int end,int cvid);
+    int getTotalRowsWithCvid(int cvid);
     List<Ftfs> queryFtfsByPage(int start,int end);
+    int getTotalRows();
 }

@@ -39,4 +39,10 @@
         from (select rownum r,T_ID,T_TITLE,E_ID,T_START_TIME,T_END_TIME,T_ADDRESS,T_IS_PUBLISH
         from T_TRAINING  where rownum <![CDATA[<]]>=#{1} order by T_START_TIME DESC) t  where r>= #{0}
     </select>
+    <select id="getTotalRowsWithEid" resultType="java.lang.Integer">
+        select count(*) from T_TRAINING where E_ID=#{eid}
+    </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_TRAINING
+    </select>
 </mapper>

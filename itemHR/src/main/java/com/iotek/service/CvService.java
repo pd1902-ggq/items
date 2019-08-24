@@ -1,14 +1,14 @@
-package com.iotek.dao;
+package com.iotek.service;
 
 import com.iotek.model.Cv;
+import com.iotek.model.Page;
 
 import java.util.List;
 
-public interface CvDao {
+public interface CvService {
     void addCv(Cv cv);
     void deleCv(int id);
     void update(Cv cv);
     List<Cv> queryCv(Cv cv);
-    List<Cv> queryCvByPageWithCID(int start,int end,int cid);
-    int getTotalRowsWithCID(int cid);
+    Page queryCvByPageWithCID(int pageNo, int cid);
 }

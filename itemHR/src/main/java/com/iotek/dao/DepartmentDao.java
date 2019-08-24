@@ -10,4 +10,5 @@ public interface DepartmentDao {
     void updateDepartment(Department department);
     List<Deprecated> queryDepartment(Department department);
     List<Deprecated> queryDepartmentByPage(int start,int end);
+    int getTotalRows();
 }

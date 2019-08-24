@@ -33,4 +33,10 @@
     <select id="queryAttendenceBypagewithEID" resultType="com.iotek.model.Attendence">
         select rownum,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from (select rownum r,ATD_ID,E_ID,ATD_START_TIME,ATD_END_TIME from T_ATTENDENCE  where E_ID=#{2} and rownum <![CDATA[<]]>=#{1} order by ATD_START_TIME DESC) t  where r>= #{0}
     </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select coount(*) from T_ATTENDENCE
+    </select>
+    <select id="getTotalRowswithEID" resultType="java.lang.Integer">
+        select count(*) from T_ATTENDENCE where E_ID=#{eid}
+    </select>
 </mapper>

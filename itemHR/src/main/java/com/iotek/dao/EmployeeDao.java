@@ -10,4 +10,5 @@ public interface EmployeeDao {
     void updateEmployee(Employee employee);
     List<Employee> queryEmployee(Employee employee);
     List<Employee> queryEmployeeByPage(int start,int end);
+    int getTotalRows();
 }

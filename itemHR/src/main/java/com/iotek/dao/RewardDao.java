@@ -10,5 +10,7 @@ public interface RewardDao {
     void updateReward(Reward reward);
     List<Reward> queryReward(Reward reward);
     List<Reward> queryRewardByPageWithEid(int start,int end,int eid);
+    int getTotalRowsWithEid(int eid);
     List<Reward> queryRewardByPage(int start,int end);
+    int getTotalRows();
 }

@@ -11,4 +11,5 @@ public interface PositionDao {
     void updatePosition(Position position);
     List<Position> queryPosition(Position position);
     List<Position> queryPositionByPage(int start,int end);
+    int getTotalRows();
 }

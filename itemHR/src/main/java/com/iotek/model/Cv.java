@@ -1,27 +1,32 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 //简历
 public class Cv implements Serializable {
-    private int cv_id;//ID
-    private int c_id;//游客ID
+    private Integer cv_id;//ID
+    private Integer c_id;//游客ID
     private String cv_name;//姓名
-    private char cv_gender;//性别
+    private String cv_gender;//性别
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date cv_birth;//出生年月
     private String cv_address;//住址
     private String cv_school;//学校名称
     private String cv_education;//学历
     private String cv_major;//所学专业
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date cv_enroll_date;//入学时间
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date cv_graduation_date;//毕业时间
-    private String cv_salary;//期望薪资
+    private double cv_salary;//期望薪资
     private String cv_exprience;//经历
 
     public Cv() {
     }
 
-    public Cv(int c_id, String cv_name, char cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, String cv_salary, String cv_exprience) {
+    public Cv(Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience) {
         this.c_id = c_id;
         this.cv_name = cv_name;
         this.cv_gender = cv_gender;
@@ -36,7 +41,7 @@ public class Cv implements Serializable {
         this.cv_exprience = cv_exprience;
     }
 
-    public Cv(int cv_id, int c_id, String cv_name, char cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, String cv_salary, String cv_exprience) {
+    public Cv(Integer cv_id, Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience) {
         this.cv_id = cv_id;
         this.c_id = c_id;
         this.cv_name = cv_name;
@@ -52,19 +57,19 @@ public class Cv implements Serializable {
         this.cv_exprience = cv_exprience;
     }
 
-    public int getCv_id() {
+    public Integer getCv_id() {
         return cv_id;
     }
 
-    public void setCv_id(int cv_id) {
+    public void setCv_id(Integer cv_id) {
         this.cv_id = cv_id;
     }
 
-    public int getC_id() {
+    public Integer getC_id() {
         return c_id;
     }
 
-    public void setC_id(int c_id) {
+    public void setC_id(Integer c_id) {
         this.c_id = c_id;
     }
 
@@ -76,11 +81,11 @@ public class Cv implements Serializable {
         this.cv_name = cv_name;
     }
 
-    public char getCv_gender() {
+    public String getCv_gender() {
         return cv_gender;
     }
 
-    public void setCv_gender(char cv_gender) {
+    public void setCv_gender(String cv_gender) {
         this.cv_gender = cv_gender;
     }
 
@@ -140,11 +145,11 @@ public class Cv implements Serializable {
         this.cv_graduation_date = cv_graduation_date;
     }
 
-    public String getCv_salary() {
+    public double getCv_salary() {
         return cv_salary;
     }
 
-    public void setCv_salary(String cv_salary) {
+    public void setCv_salary(double cv_salary) {
         this.cv_salary = cv_salary;
     }
 

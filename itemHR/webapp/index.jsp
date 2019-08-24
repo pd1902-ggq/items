@@ -81,7 +81,7 @@
     } else {
         Customer customer= (Customer) session.getAttribute( "customer" );
     %>
-    <span><a href="manageview"><%=customer.getC_account()%></a></span>
+    <span><a href="getcvs.do"><%=customer.getC_account()%></a></span>
     <%
         }
     %>

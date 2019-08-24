@@ -32,4 +32,7 @@
     <select id="queryPositionByPage" resultType="com.iotek.model.Position">
         select rownum,POS_ID,DEP_ID,E_ID,POS_NAME from (select rownum r,POS_ID,DEP_ID,E_ID,POS_NAME from T_POSITION  where rownum <![CDATA[<]]>=#{1}) t  where r>= #{0}
     </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_POSITION
+    </select>
 </mapper>

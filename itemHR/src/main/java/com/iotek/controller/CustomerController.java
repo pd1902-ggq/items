@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class CustormerController {
+public class CustomerController {
     @Resource
     private CustomerService customerService;
     @RequestMapping(value = "custormerLogin.do")

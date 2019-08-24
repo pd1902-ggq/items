@@ -36,4 +36,10 @@
         from (select rownum r,R_ID,E_ID,R_DATE,R_REASON,R_MONEY
         from T_REWARD  where  rownum <![CDATA[<]]>=#{1} order by R_DATE DESC) t  where r>= #{0}
     </select>
+    <select id="getTotalRowsWithEid" resultType="java.lang.Integer">
+        select count(*)from T_REWARD where E_ID=#{eid}
+    </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_REWARD
+    </select>
 </mapper>

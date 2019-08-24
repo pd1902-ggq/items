@@ -39,4 +39,10 @@
         from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
         from T_FTFS  where  rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
+    <select id="getTotalRowsWithCvid" resultType="java.lang.Integer">
+       select count(*) from T_FTFS where CV_ID=#{cvid}
+    </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_FTFS
+    </select>
 </mapper>

@@ -16,10 +16,8 @@ public class RecruitController {
     private RecruitService recruitService;
     @RequestMapping(value = "getRecruitPage.do")
     public String getRecruitPage(int pageNo,HttpServletRequest request, HttpServletResponse response)throws Exception{
-        if(pageNo!=0){
-            if(pageNo<1){
-                pageNo=1;
-            }
+        if(pageNo<1){
+            pageNo=1;
         }
         Page<Recruit> recruitPage =recruitService.queryRecruitByPageWhitPublich( pageNo,1 );
         request.getSession().setAttribute("recruitPage",recruitPage);

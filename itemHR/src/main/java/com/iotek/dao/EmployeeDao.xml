@@ -28,4 +28,7 @@
          from (select rownum r,E_ID,E_ACCOUNT,E_PASS,E_NAME,E_GENDER,E_ADDRESS,E_PHONE,E_DEBIT,E_ENROLL_DATE,E_STATE,E_SALARY
          from T_EMPLOYEE where rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_EMPLOYEE
+    </select>
 </mapper>

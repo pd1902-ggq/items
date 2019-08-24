@@ -30,4 +30,7 @@
     <select id="queryDepartmentByPage" resultType="java.lang.Deprecated">
          select rownum,DEP_ID,DEP_NAME,DEP_DATE from (select rownum r,DEP_ID,DEP_NAME,DEP_DATE from T_DEPARTMENT  where rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
+    <select id="getTotalRows" resultType="java.lang.Integer">
+        select count(*) from T_DEPARTMENT
+    </select>
 </mapper>

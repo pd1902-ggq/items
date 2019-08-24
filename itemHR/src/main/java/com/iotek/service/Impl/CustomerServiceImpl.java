@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service(value = "customerService")
+@Service(value = "custormerService")
 public class CustomerServiceImpl implements CustomerService {
     @Resource
     private CustomerDao customerDao;

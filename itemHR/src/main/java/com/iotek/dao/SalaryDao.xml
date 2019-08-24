@@ -34,4 +34,7 @@
          from (select rownum r,S_ID,E_ID,S_DATE,S_PERFORMANCE,S_EXTRA,S_S_INSURANCE,S_TOTAL,S_IS_TROUBLE
           from T_SALARY  where E_ID=#{2} and rownum <![CDATA[<]]>=#{1} order by S_DATE DESC) t  where r>= #{0}
     </select>
+    <select id="getTotalRowsWitheid" resultType="java.lang.Integer">
+        select count(*) from T_SALARY where E_ID=#{eid}
+    </select>
 </mapper>

@@ -10,5 +10,7 @@ public interface AttendenceDao {
     void updateAttendence(Attendence attendence);
     List<Attendence> queryAttendence(Attendence attendence);
     List<Attendence> queryAttendenceBypage(int start,int end);
+    int getTotalRows();
     List<Attendence> queryAttendenceBypagewithEID(int start,int end,int eid);
+    int getTotalRowswithEID(int eid);
 }

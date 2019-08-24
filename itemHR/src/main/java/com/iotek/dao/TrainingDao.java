@@ -10,5 +10,7 @@ public interface TrainingDao {
     void updateTraining(Training training);
     List<Training> queryTraining(Training training);
     List<Training> queryTrainingByPageWithEid(int start,int end,int eid);
+    int getTotalRowsWithEid(int eid);
     List<Training> queryTrainingByPage(int start,int end);
+    int getTotalRows();
 }

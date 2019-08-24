@@ -9,4 +9,8 @@ public interface RecruitDao {
     void deleRecruit(int id);
     void updateRecruit(Recruit recruit);
     List<Recruit> queryRecruit(Recruit recruit);
+    List<Recruit> queryRecruitByPageWhitDraft(int start,int end,int draft);
+    int getTotalRowsWhitDraft(int draft);
+    List<Recruit> queryRecruitByPageWhitPublich(int start,int end,int publish);
+    int getTotalRowsWhitPublich(int publish);
 }

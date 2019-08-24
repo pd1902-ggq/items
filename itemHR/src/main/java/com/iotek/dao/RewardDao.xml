@@ -26,4 +26,14 @@
             </choose>
         </where>
     </select>
+    <select id="queryRewardByPageWithEid" resultType="com.iotek.model.Reward">
+        select rownum,R_ID,E_ID,R_DATE,R_REASON,R_MONEY
+        from (select rownum r,R_ID,E_ID,R_DATE,R_REASON,R_MONEY
+        from T_REWARD  where E_ID=#{2} and rownum <![CDATA[<]]>=#{1} order by R_DATE DESC) t  where r>= #{0}
+    </select>
+    <select id="queryRewardByPage" resultType="com.iotek.model.Reward">
+        select rownum,R_ID,E_ID,R_DATE,R_REASON,R_MONEY
+        from (select rownum r,R_ID,E_ID,R_DATE,R_REASON,R_MONEY
+        from T_REWARD  where  rownum <![CDATA[<]]>=#{1} order by R_DATE DESC) t  where r>= #{0}
+    </select>
 </mapper>

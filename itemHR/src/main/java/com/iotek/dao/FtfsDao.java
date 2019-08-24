@@ -9,6 +9,6 @@ public interface FtfsDao {
     void deleFtfs(int id);
     void updateFtfs(Ftfs ftfs);
     List<Ftfs> queryFtfs(Ftfs ftfs);
-    List<Ftfs> queryFtfsByPageWithAccept(int start,int end,int accept);
-    List<Ftfs> queryFtfsByPageWithCvidAndAccept(int start,int end,int cvid,int accept);
+    List<Ftfs> queryFtfsByPageWithCvid(int start,int end,int cvid);
+    List<Ftfs> queryFtfsByPage(int start,int end);
 }

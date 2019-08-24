@@ -29,4 +29,9 @@
             </choose>
         </where>
     </select>
+    <select id="querySalaryByPageWitheid" resultType="com.iotek.model.Salary">
+        select rownum,S_ID,E_ID,S_DATE,S_PERFORMANCE,S_EXTRA,S_S_INSURANCE,S_TOTAL,S_IS_TROUBLE
+         from (select rownum r,S_ID,E_ID,S_DATE,S_PERFORMANCE,S_EXTRA,S_S_INSURANCE,S_TOTAL,S_IS_TROUBLE
+          from T_SALARY  where E_ID=#{2} and rownum <![CDATA[<]]>=#{1} order by S_DATE DESC) t  where r>= #{0}
+    </select>
 </mapper>

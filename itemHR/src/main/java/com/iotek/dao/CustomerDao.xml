@@ -17,6 +17,12 @@
                 <when test="c_id!=0 and c_id!=null">
                     and C_ID=#{c_id}
                 </when>
+                <when test="c_account!='' and c_account!=null and c_pass!='' and c_pass!=null">
+                    and C_ACCOUNT=#{c_account} and C_PASS=#{c_pass}
+                </when>
+                <when test="c_account!='' and c_account!=null">
+                    and C_ACCOUNT=#{c_account}
+                </when>
                 <otherwise>
                     1=1
                 </otherwise>

@@ -29,14 +29,14 @@
             </choose>
         </where>
     </select>
-    <select id="queryFtfsByPageWithAccept" resultType="com.iotek.model.Ftfs">
+    <select id="queryFtfsByPageWithCvid" resultType="com.iotek.model.Ftfs">
         select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
         from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from T_FTFS  where F_IS_ACCEPT=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+        from T_FTFS  where CV_ID=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
-    <select id="queryFtfsByPageWithCvidAndAccept" resultType="com.iotek.model.Ftfs">
+    <select id="queryFtfsByPage" resultType="com.iotek.model.Ftfs">
         select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
         from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from T_FTFS  where CV_ID=#{2} and F_IS_ACCEPT=#{3} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+        from T_FTFS  where  rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
 </mapper>

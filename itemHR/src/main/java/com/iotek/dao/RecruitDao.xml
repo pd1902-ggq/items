@@ -5,7 +5,7 @@
         INSERT INTO T_RECRUIT values (SEQ_RECRUIT.nextval,#{pos_id},#{rct_title},#{rct_introducation},#{rct_publish_time},#{rct_address},#{rct_salary},#{e_id},#{rct_is_draft},#{rct_is_publish})
     </insert>
     <update id="updateRecruit">
-        update T_RECRUIT set  POS_ID=#{pos_id},RCT_TITLE=#{rct_title},RCT_INTRODUACTION=#{rec_introduaction},RCT_PUBLISH_TIME=#{rct_publish_time},RCT_ADDRESS=#{rct_address},RCT_SALARY=#{rct_salary},E_ID=#{e_id},RCT_IS_DRAFT=#{rct_is_draft},RCT_IS_PUBLISH=#{rct_is_publish}  where RCT_ID=#{rct_id}
+        update T_RECRUIT set  POS_ID=#{pos_id},RCT_TITLE=#{rct_title},RCT_INTRODUACTION=#{rct_introduaction},RCT_PUBLISH_TIME=#{rct_publish_time},RCT_ADDRESS=#{rct_address},RCT_SALARY=#{rct_salary},E_ID=#{e_id},RCT_IS_DRAFT=#{rct_is_draft},RCT_IS_PUBLISH=#{rct_is_publish}  where RCT_ID=#{rct_id}
     </update>
     <delete id="deleRecruit">
         delete from T_RECRUIT where RCT_ID=#{id}
@@ -29,4 +29,21 @@
             </choose>
         </where>
     </select>
+    <select id="queryRecruitByPageWhitDraft" resultType="com.iotek.model.Recruit">
+         select rownum,RCT_ID,POS_ID,RCT_TITLE,RCT_INTRODUACTION,RCT_PUBLISH_TIME,RCT_ADDRESS,RCT_SALARY,E_ID,RCT_IS_DRAFT,RCT_IS_PUBLISH
+          from (select rownum r,RCT_ID,POS_ID,RCT_TITLE,RCT_INTRODUACTION,RCT_PUBLISH_TIME,RCT_ADDRESS,RCT_SALARY,E_ID,RCT_IS_DRAFT,RCT_IS_PUBLISH
+           from T_RECRUIT  where RCT_IS_DRAFT=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    </select>
+    <select id="queryRecruitByPageWhitPublich" resultType="com.iotek.model.Recruit">
+        select rownum,RCT_ID,POS_ID,RCT_TITLE,RCT_INTRODUACTION,RCT_PUBLISH_TIME,RCT_ADDRESS,RCT_SALARY,E_ID,RCT_IS_DRAFT,RCT_IS_PUBLISH
+          from (select rownum r,RCT_ID,POS_ID,RCT_TITLE,RCT_INTRODUACTION,RCT_PUBLISH_TIME,RCT_ADDRESS,RCT_SALARY,E_ID,RCT_IS_DRAFT,RCT_IS_PUBLISH
+           from T_RECRUIT  where RCT_IS_PUBLISH=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    </select>
+    <select id="getTotalRowsWhitDraft" resultType="java.lang.Integer">
+        select count (*)from T_RECRUIT where RCT_IS_DRAFT=#{draft}
+    </select>
+    <select id="getTotalRowsWhitPublich" resultType="java.lang.Integer">
+        select count (*)from T_RECRUIT where RCT_IS_PUBLISH=#{publish}
+    </select>
+
 </mapper>

@@ -9,4 +9,5 @@ public interface SalaryDao {
     void deleSalary(int id);
     void updateSalary(Salary salary);
     List<Salary> querySalary(Salary salary);
+    List<Salary> querySalaryByPageWitheid(int start,int end,int eid);
 }

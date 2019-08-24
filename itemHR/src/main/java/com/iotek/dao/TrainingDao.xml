@@ -29,4 +29,14 @@
             </choose>
         </where>
     </select>
+    <select id="queryTrainingByPageWithEid" resultType="com.iotek.model.Training">
+        select rownum,T_ID,T_TITLE,E_ID,T_START_TIME,T_END_TIME,T_ADDRESS,T_IS_PUBLISH
+        from (select rownum r,T_ID,T_TITLE,E_ID,T_START_TIME,T_END_TIME,T_ADDRESS,T_IS_PUBLISH
+        from T_TRAINING  where E_ID=#{2} and T_IS_PUBLISH=1 and rownum <![CDATA[<]]>=#{1} order by T_START_TIME DESC) t  where r>= #{0}
+    </select>
+    <select id="queryTrainingByPage" resultType="com.iotek.model.Training">
+        select rownum,T_ID,T_TITLE,E_ID,T_START_TIME,T_END_TIME,T_ADDRESS,T_IS_PUBLISH
+        from (select rownum r,T_ID,T_TITLE,E_ID,T_START_TIME,T_END_TIME,T_ADDRESS,T_IS_PUBLISH
+        from T_TRAINING  where rownum <![CDATA[<]]>=#{1} order by T_START_TIME DESC) t  where r>= #{0}
+    </select>
 </mapper>

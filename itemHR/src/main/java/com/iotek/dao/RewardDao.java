@@ -9,4 +9,6 @@ public interface RewardDao {
     void deleReward(int id);
     void updateReward(Reward reward);
     List<Reward> queryReward(Reward reward);
+    List<Reward> queryRewardByPageWithEid(int start,int end,int eid);
+    List<Reward> queryRewardByPage(int start,int end);
 }

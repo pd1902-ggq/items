@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,14 +15,20 @@ public class Employee implements Serializable {
     private String e_address;//住址
     private String e_phone;//电话
     private String e_debit;//银行卡号
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date e_enroll_date;//入职时间
     private int e_state;//工作状态
     private int e_salary;//薪资
+    private int pos_id;
 
     public Employee() {
     }
 
-    public Employee(String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary) {
+    public Employee(int e_id) {
+        this.e_id = e_id;
+    }
+
+    public Employee(String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary, int pos_id) {
         this.e_account = e_account;
         this.e_pass = e_pass;
         this.e_name = e_name;
@@ -31,9 +39,10 @@ public class Employee implements Serializable {
         this.e_enroll_date = e_enroll_date;
         this.e_state = e_state;
         this.e_salary = e_salary;
+        this.pos_id = pos_id;
     }
 
-    public Employee(int e_id, String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary) {
+    public Employee(int e_id, String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary, int pos_id) {
         this.e_id = e_id;
         this.e_account = e_account;
         this.e_pass = e_pass;
@@ -45,6 +54,7 @@ public class Employee implements Serializable {
         this.e_enroll_date = e_enroll_date;
         this.e_state = e_state;
         this.e_salary = e_salary;
+        this.pos_id = pos_id;
     }
 
     public int getE_id() {
@@ -53,6 +63,14 @@ public class Employee implements Serializable {
 
     public void setE_id(int e_id) {
         this.e_id = e_id;
+    }
+
+    public int getPos_id() {
+        return pos_id;
+    }
+
+    public void setPos_id(int pos_id) {
+        this.pos_id = pos_id;
     }
 
     public String getE_account() {
@@ -137,18 +155,6 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "HRM_employee{" +
-                "e_id=" + e_id +
-                ", e_account='" + e_account + '\'' +
-                ", e_pass='" + e_pass + '\'' +
-                ", e_name='" + e_name + '\'' +
-                ", e_gender=" + e_gender +
-                ", e_address='" + e_address + '\'' +
-                ", e_phone='" + e_phone + '\'' +
-                ", e_debit='" + e_debit + '\'' +
-                ", e_enroll_date=" + e_enroll_date +
-                ", e_state=" + e_state +
-                ", e_salary=" + e_salary +
-                '}';
+        return "Employee{" + "e_id=" + e_id + ", e_account='" + e_account + '\'' + ", e_pass='" + e_pass + '\'' + ", e_name='" + e_name + '\'' + ", e_gender=" + e_gender + ", e_address='" + e_address + '\'' + ", e_phone='" + e_phone + '\'' + ", e_debit='" + e_debit + '\'' + ", e_enroll_date=" + e_enroll_date + ", e_state=" + e_state + ", e_salary=" + e_salary + ", pos_id=" + pos_id + '}';
     }
 }

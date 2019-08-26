@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,7 +9,9 @@ import java.util.Date;
 public class Attendence implements Serializable {
     private int atd_id;
     private int e_id;//员工id
+    @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
     private Date atd_start_time;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
     private Date atd_end_time;
 
     public Attendence() {

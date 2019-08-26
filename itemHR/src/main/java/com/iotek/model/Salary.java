@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ import java.util.Date;
 public class Salary implements Serializable {
     private int s_id;//ID
     private int e_id;//员工ID
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date s_date;//结算日期
     private int s_performance;//绩效奖金
     private int s_extra;//加班费用

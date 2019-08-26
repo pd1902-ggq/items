@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.EmployeeDao">
     <insert id="addEmployee">
-        insert into T_EMPLOYEE values (SEQ_EMPLOYEE.nextval,#{e_account},#{e_pass},#{e_name},#{e_gender},#{e_address},#{e_phone},#{e_debit},#{e_enroll_date},#{e_state},#{e_salary})
+        insert into T_EMPLOYEE values (SEQ_EMPLOYEE.nextval,#{e_account},#{e_pass},#{e_name},#{e_gender},#{e_address},#{e_phone},#{e_debit},#{e_enroll_date},#{e_state},#{e_salary},#{pos_id})
     </insert>
     <update id="updateEmployee">
-        update T_EMPLOYEE set E_ACCOUNT=#{e_account},E_PASS=#{e_pass},E_NAME=#{e_name},E_GENDER=#{e_gender},E_ADDRESS=#{e_address},E_PHONE=#{e_phone},E_DEBIT=#{e_debit},E_ENROLL_DATE=#{e_enroll_date},E_STATE=#{e_state},E_SALARY=#{e_salary} where E_ID=#{e_id}
+        update T_EMPLOYEE set E_ACCOUNT=#{e_account},E_PASS=#{e_pass},E_NAME=#{e_name},E_GENDER=#{e_gender},E_ADDRESS=#{e_address},E_PHONE=#{e_phone},E_DEBIT=#{e_debit},E_ENROLL_DATE=#{e_enroll_date},E_STATE=#{e_state},E_SALARY=#{e_salary},POS_ID=#{pos_id} where E_ID=#{e_id}
     </update>
     <delete id="deleEmployee">
         delete from T_EMPLOYEE where E_ID=#{id}
@@ -24,8 +24,8 @@
         </where>
     </select>
     <select id="queryEmployeeByPage" resultType="com.iotek.model.Employee">
-         select rownum,E_ID,E_ACCOUNT,E_PASS,E_NAME,E_GENDER,E_ADDRESS,E_PHONE,E_DEBIT,E_ENROLL_DATE,E_STATE,E_SALARY
-         from (select rownum r,E_ID,E_ACCOUNT,E_PASS,E_NAME,E_GENDER,E_ADDRESS,E_PHONE,E_DEBIT,E_ENROLL_DATE,E_STATE,E_SALARY
+         select rownum,E_ID,E_ACCOUNT,E_PASS,E_NAME,E_GENDER,E_ADDRESS,E_PHONE,E_DEBIT,E_ENROLL_DATE,E_STATE,E_SALARY,POS_ID
+         from (select rownum r,E_ID,E_ACCOUNT,E_PASS,E_NAME,E_GENDER,E_ADDRESS,E_PHONE,E_DEBIT,E_ENROLL_DATE,E_STATE,E_SALARY,POS_ID
          from T_EMPLOYEE where rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
     <select id="getTotalRows" resultType="java.lang.Integer">

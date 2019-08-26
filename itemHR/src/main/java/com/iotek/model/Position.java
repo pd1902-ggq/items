@@ -6,22 +6,19 @@ import java.io.Serializable;
 public class Position implements Serializable {
     private int pos_id;//职位ID
     private int dep_id;//部门ID
-    private int e_id;//员工ID
     private String pos_name;//职位名称
 
     public Position() {
     }
 
-    public Position(int dep_id, int e_id, String pos_name) {
+    public Position(int dep_id, String pos_name) {
         this.dep_id = dep_id;
-        this.e_id = e_id;
         this.pos_name = pos_name;
     }
 
-    public Position(int pos_id, int dep_id, int e_id, String pos_name) {
+    public Position(int pos_id, int dep_id, String pos_name) {
         this.pos_id = pos_id;
         this.dep_id = dep_id;
-        this.e_id = e_id;
         this.pos_name = pos_name;
     }
 
@@ -41,13 +38,6 @@ public class Position implements Serializable {
         this.dep_id = dep_id;
     }
 
-    public int getE_id() {
-        return e_id;
-    }
-
-    public void setE_id(int e_id) {
-        this.e_id = e_id;
-    }
 
     public String getPos_name() {
         return pos_name;
@@ -62,7 +52,6 @@ public class Position implements Serializable {
         return "HRM_position{" +
                 "pos_id=" + pos_id +
                 ", dep_id=" + dep_id +
-                ", e_id=" + e_id +
                 ", pos_name='" + pos_name + '\'' +
                 '}';
     }

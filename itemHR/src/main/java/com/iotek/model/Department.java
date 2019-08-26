@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +9,7 @@ import java.util.Date;
 public class Department implements Serializable {
     private int dep_id;//ID
     private String dep_name;//部门名称
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dep_date;//建立时间
 
     public Department() {

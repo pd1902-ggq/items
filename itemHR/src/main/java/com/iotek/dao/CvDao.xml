@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.CvDao">
     <insert id="addCv">
-      INSERT INTO T_CV values (SEQ_CV.nextval,#{c_id},#{cv_name},#{cv_gender},#{cv_birth},#{cv_address},#{cv_school},#{cv_education},#{cv_major},#{cv_enroll_date},#{cv_graduation_date},#{cv_salary},#{cv_exprience})
+      INSERT INTO T_CV values (SEQ_CV.nextval,#{c_id},#{cv_name},#{cv_gender},#{cv_birth},#{cv_address},#{cv_school},#{cv_education},#{cv_major},#{cv_enroll_date},#{cv_graduation_date},#{cv_salary},#{cv_exprience},#{cv_title},#{cv_phone})
     </insert>
     <update id="update">
-        update T_CV set C_ID=#{c_id},CV_NAME=#{cv_name},CV_GENDER=#{cv_gender},CV_BIRTH=#{cv_birth},CV_ADDRESS=#{cv_address},CV_SCHOOL=#{cv_school},CV_EDUCATION=#{cv_education},CV_MAJOR=#{cv_major},CV_ENROLL_DATE=#{cv_enroll_date},CV_GRADUATION_DATE=#{cv_graduation_date},CV_SALARY=#{cv_salary},CV_EXPRIENCE=#{cv_exprience} where CV_ID=#{cv_id}
+        update T_CV set C_ID=#{c_id},CV_NAME=#{cv_name},CV_GENDER=#{cv_gender},CV_BIRTH=#{cv_birth},CV_ADDRESS=#{cv_address},CV_SCHOOL=#{cv_school},CV_EDUCATION=#{cv_education},CV_MAJOR=#{cv_major},CV_ENROLL_DATE=#{cv_enroll_date},CV_GRADUATION_DATE=#{cv_graduation_date},CV_SALARY=#{cv_salary},CV_EXPRIENCE=#{cv_exprience},CV_TITLE=#{cv_title},CV_PHONE=#{cv_phone} where CV_ID=#{cv_id}
     </update>
     <delete id="deleCv">
         DELETE FROM T_CV where CV_ID=#{id}
@@ -27,8 +27,8 @@
         </where>
     </select>
     <select id="queryCvByPageWithCID" resultType="com.iotek.model.Cv">
-       select rownum,CV_ID,C_ID,CV_NAME,CV_GENDER,CV_BIRTH,CV_ADDRESS,CV_SCHOOL,CV_EDUCATION,CV_MAJOR,CV_ENROLL_DATE,CV_GRADUATION_DATE,CV_SALARY,CV_EXPRIENCE
-       from (select rownum r,CV_ID,C_ID,CV_NAME,CV_GENDER,CV_BIRTH,CV_ADDRESS,CV_SCHOOL,CV_EDUCATION,CV_MAJOR,CV_ENROLL_DATE,CV_GRADUATION_DATE,CV_SALARY,CV_EXPRIENCE
+       select rownum,CV_ID,C_ID,CV_NAME,CV_GENDER,CV_BIRTH,CV_ADDRESS,CV_SCHOOL,CV_EDUCATION,CV_MAJOR,CV_ENROLL_DATE,CV_GRADUATION_DATE,CV_SALARY,CV_EXPRIENCE,CV_TITLE,CV_PHONE
+       from (select rownum r,CV_ID,C_ID,CV_NAME,CV_GENDER,CV_BIRTH,CV_ADDRESS,CV_SCHOOL,CV_EDUCATION,CV_MAJOR,CV_ENROLL_DATE,CV_GRADUATION_DATE,CV_SALARY,CV_EXPRIENCE,CV_TITLE,CV_PHONE
        from T_CV  where C_ID=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
     <select id="getTotalRowsWithCID" resultType="java.lang.Integer">

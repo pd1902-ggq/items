@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,7 +11,9 @@ public class Training implements Serializable {
     private String t_title;//主题
     private String t_context;//具体内容
     private int e_id;//员工ID
+    @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
     private Date t_start_time;//开始时间
+    @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
     private Date t_end_time;//结束时间
     private String t_address;//地点
     private int t_is_publish;//是否为发布

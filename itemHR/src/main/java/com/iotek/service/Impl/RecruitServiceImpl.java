@@ -12,6 +12,11 @@ import java.util.List;
 public class RecruitServiceImpl implements RecruitService {
     @Resource
     private RecruitDao recruitDao;
+
+    public List<Recruit> queryRCT(Recruit recruit) {
+        return recruitDao.queryRecruit( recruit );
+    }
+
     public Page queryRecruitByPageWhitDraft(int pageNo, int draft) {
         Page<Recruit> page=new Page<Recruit>();
         int totalRows = recruitDao.getTotalRowsWhitDraft( draft );

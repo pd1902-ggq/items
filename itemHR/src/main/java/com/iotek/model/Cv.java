@@ -22,11 +22,13 @@ public class Cv implements Serializable {
     private Date cv_graduation_date;//毕业时间
     private double cv_salary;//期望薪资
     private String cv_exprience;//经历
+    private String cv_title;//简历标题
+    private String cv_phone;//联系方式
 
     public Cv() {
     }
 
-    public Cv(Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience) {
+    public Cv(Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience, String cv_title, String cv_phone) {
         this.c_id = c_id;
         this.cv_name = cv_name;
         this.cv_gender = cv_gender;
@@ -39,9 +41,11 @@ public class Cv implements Serializable {
         this.cv_graduation_date = cv_graduation_date;
         this.cv_salary = cv_salary;
         this.cv_exprience = cv_exprience;
+        this.cv_title = cv_title;
+        this.cv_phone = cv_phone;
     }
 
-    public Cv(Integer cv_id, Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience) {
+    public Cv(Integer cv_id, Integer c_id, String cv_name, String cv_gender, Date cv_birth, String cv_address, String cv_school, String cv_education, String cv_major, Date cv_enroll_date, Date cv_graduation_date, double cv_salary, String cv_exprience, String cv_title, String cv_phone) {
         this.cv_id = cv_id;
         this.c_id = c_id;
         this.cv_name = cv_name;
@@ -55,6 +59,24 @@ public class Cv implements Serializable {
         this.cv_graduation_date = cv_graduation_date;
         this.cv_salary = cv_salary;
         this.cv_exprience = cv_exprience;
+        this.cv_title = cv_title;
+        this.cv_phone = cv_phone;
+    }
+
+    public String getCv_title() {
+        return cv_title;
+    }
+
+    public void setCv_title(String cv_title) {
+        this.cv_title = cv_title;
+    }
+
+    public String getCv_phone() {
+        return cv_phone;
+    }
+
+    public void setCv_phone(String cv_phone) {
+        this.cv_phone = cv_phone;
     }
 
     public Integer getCv_id() {
@@ -163,20 +185,6 @@ public class Cv implements Serializable {
 
     @Override
     public String toString() {
-        return "HRM_cv{" +
-                "cv_id=" + cv_id +
-                ", c_id=" + c_id +
-                ", cv_name='" + cv_name + '\'' +
-                ", cv_gender=" + cv_gender +
-                ", cv_birth=" + cv_birth +
-                ", cv_address='" + cv_address + '\'' +
-                ", cv_school='" + cv_school + '\'' +
-                ", cv_education='" + cv_education + '\'' +
-                ", cv_major='" + cv_major + '\'' +
-                ", cv_enroll_date=" + cv_enroll_date +
-                ", cv_graduation_date=" + cv_graduation_date +
-                ", cv_salary='" + cv_salary + '\'' +
-                ", cv_exprience='" + cv_exprience + '\'' +
-                '}';
+        return "Cv{" + "cv_id=" + cv_id + ", c_id=" + c_id + ", cv_name='" + cv_name + '\'' + ", cv_gender='" + cv_gender + '\'' + ", cv_birth=" + cv_birth + ", cv_address='" + cv_address + '\'' + ", cv_school='" + cv_school + '\'' + ", cv_education='" + cv_education + '\'' + ", cv_major='" + cv_major + '\'' + ", cv_enroll_date=" + cv_enroll_date + ", cv_graduation_date=" + cv_graduation_date + ", cv_salary=" + cv_salary + ", cv_exprience='" + cv_exprience + '\'' + ", cv_title='" + cv_title + '\'' + ", cv_phone='" + cv_phone + '\'' + '}';
     }
 }

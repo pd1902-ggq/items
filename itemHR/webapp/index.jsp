@@ -2,11 +2,12 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
 <%@ page import="com.iotek.service.CustomerService" %>
-<%@ page import="com.iotek.model.Customer" %>
 <%@ page import="com.iotek.service.RecruitService" %>
-<%@ page import="com.iotek.model.Recruit" %>
-<%@ page import="com.iotek.model.Page" %>
+<%@ page import="com.iotek.service.CvService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.iotek.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 11929
@@ -40,12 +41,12 @@
                 }
             });
             $("#search").change(function () {
-                var value=$("#search").val();
+                var value = $("#search").val();
                 $.ajax({
-                    type:"post",
-                    url:"search",
-                    data:{"str":value},
-                    success:function (obj) {
+                    type: "post",
+                    url: "search",
+                    data: {"str": value},
+                    success: function (obj) {
                         alert("aaa")
                     }
                 })
@@ -54,21 +55,27 @@
     </script>
 </head>
 <body>
+
+<c:if test="${addFtfs eq true}">
+    <script>
+        alert("简历投递成功")
+    </script>
+</c:if>
+
+
 <%
     Cookie[] cookies = request.getCookies();
     Cookie cookie = GetCookie.getC( cookies, "c_account" );
     Cookie cookie1 = GetCookie.getC( cookies, "c_pass" );
     if (cookie != null) {
         ApplicationContext context = new ClassPathXmlApplicationContext( "bean.xml" );
-        CustomerService custormerService= (CustomerService) context.getBean( "custormerService" );
+        CustomerService custormerService = (CustomerService) context.getBean( "custormerService" );
         Customer login = custormerService.login( new Customer( cookie.getValue(), cookie1.getValue() ) );
         if (login != null) {
             session.setAttribute( "customer", login );
         }
     }
 %>
-
-
 
 
 <div class="div1">
@@ -79,14 +86,24 @@
     <span><a href="customerRegisterView.do">游客免费注册</a> </span>
     <%
     } else {
-        Customer customer= (Customer) session.getAttribute( "customer" );
+        Customer customer = (Customer) session.getAttribute( "customer" );
     %>
     <span><a href="getcvs.do"><%=customer.getC_account()%></a></span>
     <%
         }
     %>
-
-    <span><a href="#">手机逛淘宝</a></span>
+    <%
+        if (session.getAttribute( "admin" ) == null) {
+    %>
+    <span><a href="adminLoginView.do">管理员登录</a></span>
+    <%
+    } else {
+        Administrator admin = (Administrator) session.getAttribute( "admin" );
+    %>
+    <span><a href="gmView.do"><%=admin.geta_name()%></a></span>
+    <%
+        }
+    %>
 </div>
 <div class="div2">
     <span><a href="good">淘F宝网首页</a> </span>
@@ -100,19 +117,26 @@
 <div class="div3">
     <table>
         <tr>
-            <th width="80px">职位</th>
-            <th width="80px">主题</th>
-            <th width="50px">职位描述</th>
-            <th width="50px">发布时间</th>
-            <th width="50px">地址</th>
-            <th width="50px">薪资</th>
+            <th width="100px">职位</th>
+            <th width="100px">主题</th>
+            <th width="100px">职位描述</th>
+            <th width="100px">发布时间</th>
+            <th width="100px">地址</th>
+            <th width="100px">薪资</th>
             <th width="200px">联系人</th>
+            <th width="100">投递简历</th>
         </tr>
         <%
             ApplicationContext context = new ClassPathXmlApplicationContext( "bean.xml" );
-             RecruitService recruitService= (RecruitService) context.getBean( "recruitService" );
+            RecruitService recruitService = (RecruitService) context.getBean( "recruitService" );
+            CvService cvService = (CvService) context.getBean( "cvService" );
+            Customer customer = (Customer) session.getAttribute( "customer" );
+            Cv cv = new Cv();
+            cv.setC_id( customer.getC_id() );
+            List<Cv> cvs = cvService.queryCv( cv );
+            pageContext.setAttribute( "list", cvs );
             Page<Recruit> recruitPage = (Page<Recruit>) session.getAttribute( "recruitPage" );
-            if (recruitPage==null) {
+            if (recruitPage == null) {
                 recruitPage = recruitService.queryRecruitByPageWhitPublich( 1, 1 );
             }
             if (recruitPage.getList() != null && recruitPage.getList().size() != 0) {
@@ -135,6 +159,19 @@
             <td>
                 <%=recruit.getE_id()%>
             </td>
+            <td>
+                <form action="sendCv.do" method="post">
+                    <select name="cv_id" required>
+                        <c:if test="${!empty list}">
+                            <C:forEach items="${list}" var="i">
+                                <option value="${i.cv_id}">${i.cv_title}</option>
+                            </C:forEach>
+                        </c:if>
+                    </select>
+                    <input type="hidden" name="rct_id" value="<%=recruit.getRct_id()%>">
+                    <input type="submit" value="投递简历">
+                </form>
+            </td>
         </tr>
         <%
             }
@@ -148,7 +185,8 @@
                     <span><a href="getRecruitPage.do?pageNo=<%=recruitPage.getPrevPage()%>">上一页</a></span>
                     <span><a href="getRecruitPage.do?pageNo=<%=recruitPage.getNextPage()%>">下一页</a></span>
                     <span><a href="getRecruitPage.do?pageNo=<%=recruitPage.getTotalPage()%>">尾页</a></span>
-                    <form style="size: 10px" action="getRecruitPage.do" onsubmit="return checkNum(this.children[1].value)">
+                    <form style="size: 10px" action="getRecruitPage.do"
+                          onsubmit="return checkNum(this.children[1].value)">
                         <span style="size: 10px">去第</span><input name="pageNo" type="number" value=1 min=1
                                                                  max=<%=recruitPage.getTotalPage()%>>页
                         <input type="submit" value="确认">

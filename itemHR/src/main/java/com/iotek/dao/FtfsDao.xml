@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.FtfsDao">
     <insert id="addFtfs">
-        insert into T_FTFS values (SEQ_FTFS.nextval,#{cv_id},#{rct_id},#{f_date},#{f_is_read},#{f_is_accept},#{f_is_agree})
+        insert into T_FTFS values (SEQ_FTFS.nextval,#{cv_id},#{rct_id},#{f_date},#{f_is_read})
     </insert>
     <update id="updateFtfs">
-        update T_FTFS set CV_ID = #{cv_id},RCT_ID=#{rct_id},F_DATE=#{f_date},F_IS_READ=#{f_is_read},F_IS_ACCEPT=#{f_is_accept},F_IS_AGREE=#{f_is_agree} where F_ID=#{f_id}
+        update T_FTFS set CV_ID = #{cv_id},RCT_ID=#{rct_id},F_DATE=#{f_date},F_IS_READ=#{f_is_read} where F_ID=#{f_id}
     </update>
     <delete id="deleFtfs">
         delete from T_FTFS where F_ID=#{id}
@@ -23,26 +23,29 @@
                 <when test="cv_id!=0 and cv_id!=null">
                     and CV_ID=#{cv_id}
                 </when>
+                <when test="c_id!=0 and c_id!=null">
+                    and C_ID=#{c_id}
+                </when>
                 <otherwise>
                     1=1
                 </otherwise>
             </choose>
         </where>
     </select>
-    <select id="queryFtfsByPageWithCvid" resultType="com.iotek.model.Ftfs">
-        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from T_FTFS  where CV_ID=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    <select id="queryFtfsByPageWithCidAndState" resultType="com.iotek.model.Ftfs">
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        from T_FTFS  where C_ID=#{2} and F_IS_READ=#{3} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
-    <select id="queryFtfsByPage" resultType="com.iotek.model.Ftfs">
-        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,F_IS_ACCEPT,F_IS_AGREE
-        from T_FTFS  where  rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
+    <select id="queryFtfsByPageWithState" resultType="com.iotek.model.Ftfs">
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        from T_FTFS  where F_IS_READ=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
-    <select id="getTotalRowsWithCvid" resultType="java.lang.Integer">
-       select count(*) from T_FTFS where CV_ID=#{cvid}
+    <select id="getTotalRowsWithCidAndState" resultType="java.lang.Integer">
+       select count(*) from T_FTFS where C_ID=#{0} and F_IS_READ=#{1}
     </select>
-    <select id="getTotalRows" resultType="java.lang.Integer">
-        select count(*) from T_FTFS
+    <select id="getTotalRowsWithState" resultType="java.lang.Integer">
+        select count(*) from T_FTFS where F_IS_READ=#{state}
     </select>
 </mapper>

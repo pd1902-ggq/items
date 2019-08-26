@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ public class Recruit implements Serializable {
     private int pos_id;//职位ID
     private String rct_title;//主题
     private String rct_introduaction;//职位描述
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date rct_publish_time;//发布时间
     private String rct_address;//地址
     private int rct_salary;//薪资

@@ -1,5 +1,7 @@
 package com.iotek.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -7,6 +9,7 @@ import java.sql.Date;
 public class Reward implements Serializable {
     private int r_id;//ID
     private int e_id;//员工ID
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date r_date;//时间
     private String r_reason;//原因
     private int r_money;//金额

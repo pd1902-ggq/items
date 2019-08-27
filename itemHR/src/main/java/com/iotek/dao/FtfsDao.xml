@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.FtfsDao">
     <insert id="addFtfs">
-        insert into T_FTFS values (SEQ_FTFS.nextval,#{cv_id},#{rct_id},#{f_date},#{f_is_read})
+        insert into T_FTFS values (SEQ_FTFS.nextval,#{cv_id},#{rct_id},null,#{f_is_read},#{c_id})
     </insert>
     <update id="updateFtfs">
-        update T_FTFS set CV_ID = #{cv_id},RCT_ID=#{rct_id},F_DATE=#{f_date},F_IS_READ=#{f_is_read} where F_ID=#{f_id}
+        update T_FTFS set CV_ID = #{cv_id},RCT_ID=#{rct_id},F_DATE=#{f_date},F_IS_READ=#{f_is_read},C_ID=#{c_id} where F_ID=#{f_id}
     </update>
     <delete id="deleFtfs">
         delete from T_FTFS where F_ID=#{id}
@@ -33,13 +33,13 @@
         </where>
     </select>
     <select id="queryFtfsByPageWithCidAndState" resultType="com.iotek.model.Ftfs">
-        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
-        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,C_ID
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,C_ID
         from T_FTFS  where C_ID=#{2} and F_IS_READ=#{3} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
     <select id="queryFtfsByPageWithState" resultType="com.iotek.model.Ftfs">
-        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
-        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ
+        select rownum,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,C_ID
+        from (select rownum r,F_ID,CV_ID,RCT_ID,F_DATE,F_IS_READ,C_ID
         from T_FTFS  where F_IS_READ=#{2} and rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
     <select id="getTotalRowsWithCidAndState" resultType="java.lang.Integer">

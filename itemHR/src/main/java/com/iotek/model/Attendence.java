@@ -7,8 +7,8 @@ import java.util.Date;
 
 //考勤表
 public class Attendence implements Serializable {
-    private int atd_id;
-    private int e_id;//员工id
+    private Integer atd_id;
+    private Integer e_id;//员工id
     @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
     private Date atd_start_time;
     @DateTimeFormat(pattern="yyyy-MM-dd HH-mm-ss")
@@ -17,32 +17,32 @@ public class Attendence implements Serializable {
     public Attendence() {
     }
 
-    public Attendence(int e_id, Date atd_start_time, Date atd_end_time) {
+    public Attendence(Integer e_id, Date atd_start_time, Date atd_end_time) {
         this.e_id = e_id;
         this.atd_start_time = atd_start_time;
         this.atd_end_time = atd_end_time;
     }
 
-    public Attendence(int atd_id, int e_id, Date atd_start_time, Date atd_end_time) {
+    public Attendence(Integer atd_id, Integer e_id, Date atd_start_time, Date atd_end_time) {
         this.atd_id = atd_id;
         this.e_id = e_id;
         this.atd_start_time = atd_start_time;
         this.atd_end_time = atd_end_time;
     }
 
-    public int getAtd_id() {
+    public Integer getAtd_id() {
         return atd_id;
     }
 
-    public void setAtd_id(int atd_id) {
+    public void setAtd_id(Integer atd_id) {
         this.atd_id = atd_id;
     }
 
-    public int getE_id() {
+    public Integer getE_id() {
         return e_id;
     }
 
-    public void setE_id(int e_id) {
+    public void setE_id(Integer e_id) {
         this.e_id = e_id;
     }
 

@@ -10,7 +10,7 @@
     <delete id="deleDepartment">
         delete FROM T_DEPARTMENT where DEP_ID=#{id}
     </delete>
-    <select id="queryDepartment" resultType="java.lang.Deprecated">
+    <select id="queryDepartment" resultType="com.iotek.model.Department">
         select * from T_DEPARTMENT
         <where>
             <choose>
@@ -27,7 +27,7 @@
         </where>
 
     </select>
-    <select id="queryDepartmentByPage" resultType="java.lang.Deprecated">
+    <select id="queryDepartmentByPage" resultType="com.iotek.model.Department">
          select rownum,DEP_ID,DEP_NAME,DEP_DATE from (select rownum r,DEP_ID,DEP_NAME,DEP_DATE from T_DEPARTMENT  where rownum <![CDATA[<]]>=#{1} ) t  where r>= #{0}
     </select>
     <select id="getTotalRows" resultType="java.lang.Integer">

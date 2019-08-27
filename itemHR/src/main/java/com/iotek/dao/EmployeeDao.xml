@@ -17,6 +17,9 @@
                 <when test="e_id!=0 and e_id!=null">
                     and E_ID=#{e_id}
                 </when>
+                <when test="pos_id!=0 and pos_id!=null">
+                    and POS_ID=#{pos_id}
+                </when>
                 <otherwise>
                     1=1
                 </otherwise>

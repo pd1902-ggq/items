@@ -1,4 +1,4 @@
-package com.iotek.service.Impl;
+package com.iotek.service;
 
 import com.iotek.model.Employee;
 

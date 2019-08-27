@@ -7,7 +7,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.iotek.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: 11929
@@ -87,6 +88,12 @@
     <%
     } else {
         Customer customer = (Customer) session.getAttribute( "customer" );
+        ApplicationContext context=new ClassPathXmlApplicationContext( "bean.xml" );
+        CvService cvService = (CvService) context.getBean( "cvService" );
+        Cv cv = new Cv();
+        cv.setC_id( customer.getC_id() );
+        List<Cv> cvs = cvService.queryCv( cv );
+        pageContext.setAttribute( "list", cvs );
     %>
     <span><a href="getcvs.do"><%=customer.getC_account()%></a></span>
     <%
@@ -106,7 +113,7 @@
     %>
 </div>
 <div class="div2">
-    <span><a href="good">淘F宝网首页</a> </span>
+    <span><a href="ftfsView.do">我的面试信息</a> </span>
     <span><a href="user?method=getMyInfo">我的淘宝</a></span>
     <span><a href="buycar?method=getInfo">购物车</a></span>
     <span><a href="orders?method=myOrders">我的订单</a></span>
@@ -122,19 +129,13 @@
             <th width="100px">职位描述</th>
             <th width="100px">发布时间</th>
             <th width="100px">地址</th>
-            <th width="100px">薪资</th>
-            <th width="200px">联系人</th>
-            <th width="100">投递简历</th>
+            <th width="50px">薪资</th>
+            <th width="50px">联系人</th>
+            <th width="200">投递简历</th>
         </tr>
         <%
             ApplicationContext context = new ClassPathXmlApplicationContext( "bean.xml" );
             RecruitService recruitService = (RecruitService) context.getBean( "recruitService" );
-            CvService cvService = (CvService) context.getBean( "cvService" );
-            Customer customer = (Customer) session.getAttribute( "customer" );
-            Cv cv = new Cv();
-            cv.setC_id( customer.getC_id() );
-            List<Cv> cvs = cvService.queryCv( cv );
-            pageContext.setAttribute( "list", cvs );
             Page<Recruit> recruitPage = (Page<Recruit>) session.getAttribute( "recruitPage" );
             if (recruitPage == null) {
                 recruitPage = recruitService.queryRecruitByPageWhitPublich( 1, 1 );
@@ -147,9 +148,10 @@
             </td>
             <td><%=recruit.getRct_title()%>
             </td>
-            <td><%=recruit.getrct_introduaction()%>
+            <td><%=recruit.getRct_introduaction()%>
             </td>
-            <td><%=recruit.getRct_publish_time()%>
+            <td>
+                <fmt:formatDate value="<%=recruit.getRct_publish_time()%>" pattern="yyyy-MM-dd HH-mm-ss"/>
             </td>
             <td><%=recruit.getRct_address()%>
             </td>

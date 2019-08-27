@@ -8,7 +8,7 @@ public interface DepartmentDao {
     void addDepartment(Department department);
     void deleDepartment(int id);
     void updateDepartment(Department department);
-    List<Deprecated> queryDepartment(Department department);
-    List<Deprecated> queryDepartmentByPage(int start,int end);
+    List<Department> queryDepartment(Department department);
+    List<Department> queryDepartmentByPage(int start,int end);
     int getTotalRows();
 }

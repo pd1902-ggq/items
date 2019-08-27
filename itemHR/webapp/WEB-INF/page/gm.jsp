@@ -25,5 +25,6 @@
 </head>
 <body>
 <button><a href="ftfsGmView.do">面试管理</a></button>
+<button><a href="departmentGmView.do">部门及职务管理</a></button>
 </body>
 </html>

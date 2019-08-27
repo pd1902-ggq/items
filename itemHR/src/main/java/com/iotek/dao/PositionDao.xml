@@ -18,7 +18,10 @@
                     and POS_ID=#{pos_id}
                 </when>
                 <when test="dep_id!=0 and dep_id!=null">
-                    and Dep_ID=#{dep_id}
+                    and DEP_ID=#{dep_id}
+                </when>
+                <when test="pos_name!=null and pos_name!=''">
+                    and POS_NAME=#{pos_name}
                 </when>
                 <otherwise>
                     1=1

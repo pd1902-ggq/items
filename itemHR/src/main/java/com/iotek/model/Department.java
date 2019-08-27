@@ -7,7 +7,7 @@ import java.util.Date;
 
 //部门表
 public class Department implements Serializable {
-    private int dep_id;//ID
+    private Integer dep_id;//ID
     private String dep_name;//部门名称
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dep_date;//建立时间
@@ -20,17 +20,17 @@ public class Department implements Serializable {
         this.dep_date = dep_date;
     }
 
-    public Department(int dep_id, String dep_name, Date dep_date) {
+    public Department(Integer dep_id, String dep_name, Date dep_date) {
         this.dep_id = dep_id;
         this.dep_name = dep_name;
         this.dep_date = dep_date;
     }
 
-    public int getDep_id() {
+    public Integer getDep_id() {
         return dep_id;
     }
 
-    public void setDep_id(int dep_id) {
+    public void setDep_id(Integer dep_id) {
         this.dep_id = dep_id;
     }
 

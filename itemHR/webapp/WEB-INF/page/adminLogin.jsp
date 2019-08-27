@@ -75,6 +75,7 @@
                 <td id="td2"></td>
             </tr>
         </table>
+        <input type="submit" value="登录">
     </form>
 </fieldset>
 </body>

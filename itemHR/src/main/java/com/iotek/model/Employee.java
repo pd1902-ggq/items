@@ -7,7 +7,7 @@ import java.util.Date;
 
 //员工表
 public class Employee implements Serializable {
-    private int e_id;//ID
+    private Integer e_id;//ID
     private String e_account;//账号
     private String e_pass;//密码
     private String e_name;//姓名
@@ -17,18 +17,18 @@ public class Employee implements Serializable {
     private String e_debit;//银行卡号
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date e_enroll_date;//入职时间
-    private int e_state;//工作状态
-    private int e_salary;//薪资
-    private int pos_id;
+    private Integer e_state;//工作状态
+    private Integer e_salary;//薪资
+    private Integer pos_id;
 
     public Employee() {
     }
 
-    public Employee(int e_id) {
+    public Employee(Integer e_id) {
         this.e_id = e_id;
     }
 
-    public Employee(String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary, int pos_id) {
+    public Employee(String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, Integer e_state, Integer e_salary, Integer pos_id) {
         this.e_account = e_account;
         this.e_pass = e_pass;
         this.e_name = e_name;
@@ -42,7 +42,7 @@ public class Employee implements Serializable {
         this.pos_id = pos_id;
     }
 
-    public Employee(int e_id, String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, int e_state, int e_salary, int pos_id) {
+    public Employee(Integer e_id, String e_account, String e_pass, String e_name, char e_gender, String e_address, String e_phone, String e_debit, Date e_enroll_date, Integer e_state, Integer e_salary, Integer pos_id) {
         this.e_id = e_id;
         this.e_account = e_account;
         this.e_pass = e_pass;
@@ -57,19 +57,19 @@ public class Employee implements Serializable {
         this.pos_id = pos_id;
     }
 
-    public int getE_id() {
+    public Integer getE_id() {
         return e_id;
     }
 
-    public void setE_id(int e_id) {
+    public void setE_id(Integer e_id) {
         this.e_id = e_id;
     }
 
-    public int getPos_id() {
+    public Integer getPos_id() {
         return pos_id;
     }
 
-    public void setPos_id(int pos_id) {
+    public void setPos_id(Integer pos_id) {
         this.pos_id = pos_id;
     }
 
@@ -137,19 +137,19 @@ public class Employee implements Serializable {
         this.e_enroll_date = e_enroll_date;
     }
 
-    public int getE_state() {
+    public Integer getE_state() {
         return e_state;
     }
 
-    public void setE_state(int e_state) {
+    public void setE_state(Integer e_state) {
         this.e_state = e_state;
     }
 
-    public int getE_salary() {
+    public Integer getE_salary() {
         return e_salary;
     }
 
-    public void setE_salary(int e_salary) {
+    public void setE_salary(Integer e_salary) {
         this.e_salary = e_salary;
     }
 

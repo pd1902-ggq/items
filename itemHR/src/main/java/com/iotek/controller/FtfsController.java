@@ -3,7 +3,7 @@ package com.iotek.controller;
 import com.iotek.model.*;
 import com.iotek.service.CvService;
 import com.iotek.service.FtfsService;
-import com.iotek.service.Impl.EmployeeService;
+import com.iotek.service.EmployeeService;
 import com.iotek.service.RecruitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,40 +40,31 @@ public class FtfsController {
         Customer customer= (Customer) request.getSession().getAttribute( "customer" );
         if (customer!=null) {
             String pageNoStr0 = request.getParameter("pageNo0");
-            String pageNoStr2 = request.getParameter("pageNo2");
+            String pageNoStr1 = request.getParameter("pageNo1");
             String pageNoStr3 = request.getParameter("pageNo3");
             int pageNo0=1;
-            int pageNo2=1;
+            int pageNo1=1;
             int pageNo3=1;
             if(pageNoStr0!=null&&!"".equals(pageNoStr0)){
                 pageNo0=Integer.parseInt(pageNoStr0);
                 request.setAttribute( "flag",0 );
             }
-            if(pageNoStr2!=null&&!"".equals(pageNoStr2)){
-                pageNo2=Integer.parseInt(pageNoStr2);
-                request.setAttribute( "flag",2 );
+            if(pageNoStr1!=null&&!"".equals(pageNoStr1)){
+                pageNo1=Integer.parseInt(pageNoStr1);
+                request.setAttribute( "flag",1 );
             }
             if(pageNoStr3!=null&&!"".equals(pageNoStr3)){
                 pageNo3=Integer.parseInt(pageNoStr3);
                 request.setAttribute( "flag",3 );
             }
-            Page<Ftfs> goodPage0 = ftfsService.queryFtfsByPageWithCidAndState( pageNo0,customer.getC_id(),0 );
-            Page page0=new Page();
-            page0.setPageNo( pageNo0 );
-            page0.setTotalRows( goodPage0.getTotalRows() );
-            request.setAttribute( "ftfs0",page0 );
+            Page<Ftfs> ftfsPage0 = ftfsService.queryFtfsByPageWithCidAndState( pageNo0,customer.getC_id(),0 );
+            request.setAttribute( "ftfs0",ftfsPage0 );
 
-            Page<Ftfs> goodPage2 = ftfsService.queryFtfsByPageWithCidAndState( pageNo2,customer.getC_id(),1 );
-            Page page2=new Page();
-            page2.setPageNo( pageNo2 );
-            page2.setTotalRows( goodPage2.getTotalRows() );
-            request.setAttribute( "ftfs1",page2 );
+            Page<Ftfs> ftfsPage1 = ftfsService.queryFtfsByPageWithCidAndState( pageNo1,customer.getC_id(),1 );
+            request.setAttribute( "ftfs1",ftfsPage1 );
 
-            Page<Ftfs> goodPage3 = ftfsService.queryFtfsByPageWithCidAndState( pageNo2,customer.getC_id(),3 );
-            Page page3=new Page();
-            page3.setPageNo( pageNo3 );
-            page3.setTotalRows( goodPage3.getTotalRows() );
-            request.setAttribute( "ftfs3",page3 );
+            Page<Ftfs> ftfsPage3 = ftfsService.queryFtfsByPageWithCidAndState( pageNo3,customer.getC_id(),3 );
+            request.setAttribute( "ftfs3",ftfsPage3 );
 
             //获取简历信息
             Cv cv=new Cv();

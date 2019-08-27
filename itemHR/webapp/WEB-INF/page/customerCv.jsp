@@ -34,8 +34,6 @@
                 $("#addOrUpdate").css("display", "block");
                 $("#method").val("add");
             });
-
-
         })
     </script>
     <script src="js/customerCv.js" type="text/javascript"></script>

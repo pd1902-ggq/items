@@ -2,7 +2,10 @@
 <%@ page import="com.iotek.model.Cv" %>
 <%@ page import="com.iotek.model.Employee" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.iotek.model.Recruit" %><%--
+<%@ page import="com.iotek.model.Recruit" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/8/26
@@ -18,7 +21,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>我的面试信息</title>
+    <title>面试管理</title>
     <style>
         td {
             align: center;
@@ -58,7 +61,7 @@
         });
 
     </script>
-    <script src="js/ftfs.js" type="text/javascript"></script>
+    <script src="js/ftfsGm.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -109,7 +112,7 @@
                     <th>
                         <c:forEach items="${rcts}" var="rct">
                             <c:if test="${a.rct_id eq rct.rct_id}">
-                                ${rct.rct_introduaction()}
+                                ${rct.rct_introduaction}
                             </c:if>
                         </c:forEach>
                     </th>
@@ -138,7 +141,7 @@
                     <th>
                         <form method="post" action="makeSureFtfsTime.do">
                             <input type="hidden" name="f_id" value="${a.f_id}">
-                            <input type="datetime" name="f_date" required>
+                            <input type="datetime-local" name="f_date" required>
                             <input type="submit" value="提交">
                         </form>
                     </th>
@@ -149,13 +152,12 @@
                     <div class="div4">
                         <span>共 <%=page0.getTotalPage()%> 页</span>
                         <span>当前在第 <%=page0.getPageNo()%> 页</span>
-                        <span><a href="orders?pageNo0=1&method=myOrders">首页</a></span>
-                        <span><a href="orders?pageNo0=<%=page0.getPrevPage()%>&method=myOrders">上一页</a></span>
-                        <span><a href="orders?pageNo0=<%=page0.getNextPage()%>&method=myOrders">下一页</a></span>
-                        <span><a href="orders?pageNo0=<%=page0.getTotalPage()%>&method=myOrders">尾页</a></span>
-                        <form style="size: 10px;display: inline" action="orders"
+                        <span><a href="ftfsGmView.do?pageNo0=1">首页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo0=<%=page0.getPrevPage()%>">上一页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo0=<%=page0.getNextPage()%>">下一页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo0=<%=page0.getTotalPage()%>">尾页</a></span>
+                        <form style="size: 10px;display: inline" action="ftfsGmView.do"
                               onsubmit="return checkNum(this.children[1].value)">
-                            <input type="hidden" name="method" value="myOrders">
                             <span style="size: 10px">去第</span><input name="pageNo0" type="number" value=1 min=1
                                                                      max=<%=page0.getTotalPage()%>>页
                             <input type="submit" value="确认">
@@ -203,7 +205,7 @@
                     <th>
                         <c:forEach items="${rcts}" var="rct">
                             <c:if test="${a.rct_id eq rct.rct_id}">
-                                ${rct.rct_introduaction()}
+                                ${rct.rct_introduaction}
                             </c:if>
                         </c:forEach>
                     </th>
@@ -244,13 +246,12 @@
                     <div class="div4">
                         <span>共 <%=page2.getTotalPage()%> 页</span>
                         <span>当前在第 <%=page2.getPageNo()%> 页</span>
-                        <span><a href="orders?pageNo2=1&method=myOrders">首页</a></span>
-                        <span><a href="orders?pageNo2=<%=page2.getPrevPage()%>&method=myOrders">上一页</a></span>
-                        <span><a href="orders?pageNo2=<%=page2.getNextPage()%>&method=myOrders">下一页</a></span>
-                        <span><a href="orders?pageNo2=<%=page2.getTotalPage()%>&method=myOrders">尾页</a></span>
-                        <form style="size: 10px;display: inline" action="orders"
+                        <span><a href="ftfsGmView.do?pageNo2=1">首页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo2=<%=page2.getPrevPage()%>">上一页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo2=<%=page2.getNextPage()%>">下一页</a></span>
+                        <span><a href="ftfsGmView.do?pageNo2=<%=page2.getTotalPage()%>">尾页</a></span>
+                        <form style="size: 10px;display: inline" action="ftfsGmView.do"
                               onsubmit="return checkNum(this.children[1].value)">
-                            <input type="hidden" name="method" value="myOrders">
                             <span style="size: 10px">去第</span><input name="pageNo2" type="number" value=1 min=1
                                                                      max=<%=page2.getTotalPage()%>>页
                             <input type="submit" value="确认">
@@ -271,6 +272,6 @@
 
 
 
-<a href="index.jsp">返回首页</a>
+<a href="gm.do">返回主页</a>
 </body>
 </html>

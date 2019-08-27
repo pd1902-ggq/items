@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 @Controller
 public class RecruitController {
@@ -25,9 +26,11 @@ public class RecruitController {
     }
 
     @RequestMapping(value = "sendCv.do")
-    public String sendCv(int cv_id,int rct_id,HttpServletRequest request, HttpServletResponse response)throws Exception{
+    public String sendCv(Integer cv_id,Integer rct_id,HttpServletRequest request, HttpServletResponse response)throws Exception{
         Customer customer= (Customer) request.getSession().getAttribute( "customer" );
-        Ftfs ftfs=new Ftfs(cv_id,rct_id,null,0,customer.getC_id()  );
+        Date date=new Date();
+        System.out.println(cv_id +"------"+rct_id);
+        Ftfs ftfs=new Ftfs(cv_id,rct_id,date,0,customer.getC_id()  );
         ftfsService.addFtfs( ftfs );
         request.setAttribute( "addFtfs",true );
         return mainView( request,response );
